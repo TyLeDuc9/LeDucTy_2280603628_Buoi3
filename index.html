@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    input, select, button {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+
+    /* ===== BUTTON STYLE ===== */
+    .controls button {
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .controls button.active {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+
+    tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    .images {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .images img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .pagination {
+      margin-top: 15px;
+    }
+
+    .pagination button {
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📦 Product Dashboard</h1>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Tìm theo title..." />
+
+    <select id="pageSize">
+      <option value="5">5 / trang</option>
+      <option value="10">10 / trang</option>
+      <option value="20">20 / trang</option>
+    </select>
+
+    <button id="sortPriceBtn" onclick="sortByPrice(this)">Giá ↑↓</button>
+    <button id="sortTitleBtn" onclick="sortByTitle(this)">Tên ↑↓</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Images</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Price ($)</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <div class="pagination" id="pagination"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
